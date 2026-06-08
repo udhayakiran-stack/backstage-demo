@@ -10,6 +10,9 @@ app:
     - page:catalog:
         config:
           path: /
+    - page:tech-radar:
+        config:
+          path: /tech-radar
 
 organization:
   name: My Company
@@ -26,6 +29,11 @@ backend:
     port: 7007
     # Uncomment the following host directive to bind to specific interfaces
     # host: 127.0.0.1
+  reading:
+    allow:
+      - host: raw.githubusercontent.com
+      - host: github.com
+
   csp:
     connect-src: ["'self'", 'http:', 'https:']
     # Content-Security-Policy directives follow the Helmet format: https://helmetjs.github.io/#reference
@@ -52,7 +60,7 @@ integrations:
     - host: github.com
       # This is a Personal Access Token or PAT from GitHub. You can find out how to generate this token, and more information
       # about setting up the GitHub integration here: https://backstage.io/docs/integrations/github/locations#configuration
-      token: ${GITHUB_TOKEN}
+      token: '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'
     ### Example for how to add your GitHub Enterprise instance using the API:
     # - host: ghe.example.net
     #   apiBaseUrl: https://ghe.example.net/api/v3
@@ -73,15 +81,20 @@ proxy:
 techdocs:
   builder: 'local' # Alternatives - 'external'
   generator:
-    runIn: 'docker' # Alternatives - 'local'
+    runIn: 'local' # Alternatives - 'local'
   publisher:
     type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
 
 auth:
+  environment: development
   # see https://backstage.io/docs/auth/ to learn about auth providers
   providers:
-    # See https://backstage.io/docs/auth/guest/provider
-    guest: {}
+    github:
+      development:
+        # clientId: 'Ov23liqlJ8REmzDjf4nV' 
+        # clientSecret: '3597cc63442e4643f542dd23070c1cdec74e3c62'
+        clientId: 'Ov23liqlJ8REmzDjf4nV' 
+        clientSecret: '3597cc63442e4643f542dd23070c1cdec74e3c62'
   # see https://backstage.io/docs/ai/mcp-actions#client-id-metadata-documents
   # to learn more about client id metadata documents
   experimentalClientIdMetadataDocuments:
@@ -96,6 +109,9 @@ auth:
     #   - 'https://*.example.com/*'
 
 scaffolder:
+  defaultAuthor:
+    name: Backstage
+    email: backstage@elitecorpusa.com
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
 
 catalog:
