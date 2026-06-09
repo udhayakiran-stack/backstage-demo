@@ -50,6 +50,7 @@ Create a new GitHub repository
 Configure CI/CD pipelines
 Register the service in Backstage Catalog
 🔁 High-Level Flow
+```
 Developer selects template in Backstage UI
         ↓
 Fills in service details (name, description, etc.)
@@ -67,6 +68,8 @@ CI/CD pipeline is configured (GitHub Actions, etc.)
 Component is registered in Backstage Catalog
         ↓
 Service becomes visible in Developer Portal
+```
+
 ⚙️ Step-by-Step Execution Flow
 1. Template Selection
 Developer opens Backstage UI
@@ -94,6 +97,7 @@ Template files are copied from /skeleton
 Variables are replaced dynamically
 Final project structure is generated
 
+```
 Example:
 
 service-name/
@@ -102,6 +106,8 @@ service-name/
  ├── package.json
  ├── catalog-info.yaml
  └── .github/workflows/ci.yml
+```
+
 5. GitHub Repository Creation
 
 Backstage automatically:
@@ -143,7 +149,9 @@ GitHub repository is ready
 CI/CD pipeline is active
 Service appears in Backstage Catalog
 Developers can start coding immediately
+
 🧭 Architecture Summary
+```
 Backstage UI
      ↓
 Scaffolder Plugin
@@ -157,3 +165,4 @@ GitHub API (repo creation)
 CI/CD Pipeline (GitHub Actions)
      ↓
 Backstage Catalog Registration
+```
