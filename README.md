@@ -150,8 +150,8 @@ CI/CD pipeline is active
 Service appears in Backstage Catalog
 Developers can start coding immediately
 
-```
 🧭 Architecture Summary
+```
 Backstage UI
      ↓
 Scaffolder Plugin
