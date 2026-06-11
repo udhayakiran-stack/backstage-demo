@@ -6,3 +6,7 @@ packages/*/src
 packages/*/node_modules
 plugins
 *.local.yaml
+*.md
+dist
+packages/app/dist
+packages/backend/dist
