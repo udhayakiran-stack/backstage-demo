@@ -60,7 +60,7 @@ integrations:
     - host: github.com
       # This is a Personal Access Token or PAT from GitHub. You can find out how to generate this token, and more information
       # about setting up the GitHub integration here: https://backstage.io/docs/integrations/github/locations#configuration
-      token: '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'
+      token: ${GITHUB_TOKEN}
       # token: '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'
     ### Example for how to add your GitHub Enterprise instance using the API:
     # - host: ghe.example.net
@@ -92,21 +92,21 @@ auth:
   providers:
     github:
       development:
-        clientId: 'Ov23liqlJ8REmzDjf4nV' 
-        clientSecret: '3597cc63442e4643f542dd23070c1cdec74e3c62'
+        clientId: ${AUTH_GITHUB_CLIENT_ID} 
+        clientSecret: '${AUTH_GITHUB_CLIENT_SECRET}'
         # clientId: ${AUTH_GITHUB_CLIENT_ID} 
         # clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
   # see https://backstage.io/docs/ai/mcp-actions#client-id-metadata-documents
   # to learn more about client id metadata documents
     okta:
       development:
-        clientId: '0oa13xyyfwp0dahuw698'
-        clientSecret: 'xLceEDW6g8yHI7uDFrQCqon7a7GKhAmIrCuyxLU_KyHRFrWAX6Ve_gQgrIeVxXHo'
-        audience: 'https://trial-7958725.okta.com'
+        clientId: ${AUTH_OKTA_CLIENT_ID}
+        clientSecret: ${AUTH_OKTA_CLIENT_SECRET}
+        audience: ${AUTH_OKTA_AUDIENCE}
     google:
       development:
-        clientId: '404360002837-6gd9t0vl06s64prips4db9a7ukjumvic.apps.googleusercontent.com'
-        clientSecret: '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'
+        clientId: ${AUTH_GOOGLE_CLIENT_ID}
+        clientSecret: '${AUTH_GOOGLE_CLIENT_SECRET}'
         # clientId: ${AUTH_GOOGLE_CLIENT_ID}
         # clientSecret: ${AUTH_GOOGLE_CLIENT_SECRET}
         # clientId: ${AUTH_OKTA_CLIENT_ID}
