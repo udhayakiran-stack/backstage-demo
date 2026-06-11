@@ -1,3 +1,21 @@
+FROM node:22-bookworm-slim AS build
+
+RUN apt-get update && apt-get install -y python3 make g++ git \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+COPY package.json yarn.lock .yarnrc.yml ./
+COPY .yarn ./.yarn
+COPY packages/app/package.json ./packages/app/package.json
+COPY packages/backend/package.json ./packages/backend/package.json
+
+RUN yarn install --immutable
+
+COPY . .
+
+RUN yarn workspace backend build
+
 # --- Production ---
 FROM node:22-bookworm-slim
 
@@ -11,7 +29,6 @@ WORKDIR /app
 COPY --from=build /app/packages/backend/dist/bundle.tar.gz .
 RUN tar xzf bundle.tar.gz && rm bundle.tar.gz
 
-# ✅ Copy node_modules from build stage
 COPY --from=build /app/node_modules ./node_modules
 
 COPY app-config.yaml .
