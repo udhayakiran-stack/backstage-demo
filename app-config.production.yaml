@@ -44,7 +44,7 @@ auth:
   environment: production
   providers:
     okta:
-      development:
+      production:
         clientId: ${AUTH_OKTA_CLIENT_ID}
         clientSecret: ${AUTH_OKTA_CLIENT_SECRET}
         audience: ${AUTH_OKTA_AUDIENCE}
