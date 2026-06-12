@@ -14,7 +14,6 @@ RUN yarn install --immutable
 
 COPY . .
 
-# ✅ Build BOTH frontend and backend
 RUN yarn workspace app build
 RUN yarn workspace backend build
 
@@ -32,9 +31,6 @@ COPY --from=build /app/packages/backend/dist/bundle.tar.gz .
 RUN tar xzf bundle.tar.gz && rm bundle.tar.gz
 
 COPY --from=build /app/node_modules ./node_modules
-
-# ✅ Copy frontend build output
-COPY --from=build /app/packages/app/dist ./packages/app/dist
 
 COPY app-config.yaml .
 COPY app-config.production.yaml .
