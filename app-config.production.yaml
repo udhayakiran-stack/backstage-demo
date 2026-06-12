@@ -1,6 +1,14 @@
 app:
   title: My Company Developer Portal
   baseUrl: https://backstage-629511660633.us-central1.run.app
+  packages: all
+  extensions:
+    - page:catalog:
+        config:
+          path: /
+    - page:tech-radar:
+        config:
+          path: /tech-radar
 
 organization:
   name: My Company
@@ -15,6 +23,7 @@ backend:
       - type: static
         options:
           token: ${BACKEND_SECRET}
+          subject: legacy-default-config
   cors:
     origin:
       - https://backstage-629511660633.us-central1.run.app
