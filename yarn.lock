@@ -13516,6 +13516,7 @@ __metadata:
     "@backstage/plugin-app-backend": "npm:^0.5.14"
     "@backstage/plugin-auth-backend": "npm:^0.29.0"
     "@backstage/plugin-auth-backend-module-github-provider": "npm:^0.5.3"
+    "@backstage/plugin-auth-backend-module-google-provider": "npm:^0.3.15"
     "@backstage/plugin-auth-backend-module-guest-provider": "npm:^0.2.19"
     "@backstage/plugin-auth-backend-module-okta-provider": "npm:^0.2.15"
     "@backstage/plugin-auth-node": "npm:^0.7.1"

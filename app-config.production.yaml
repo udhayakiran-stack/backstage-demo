@@ -2,26 +2,22 @@ app:
   title: My Company Developer Portal
   baseUrl: https://backstage-629511660633.us-central1.run.app
 
-organization:
-  name: My Company
-
 backend:
   baseUrl: https://backstage-629511660633.us-central1.run.app
-
   listen:
     port: ${PORT}
     host: 0.0.0.0
-
   auth:
-    keys:
-      - secret: ${BACKEND_SECRET}
-
+    externalAccess:
+      - type: static
+        options:
+          token: ${BACKEND_SECRET}
+          subject: legacy-default-config
   cors:
     origin:
       - https://backstage-629511660633.us-central1.run.app
     methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
     credentials: true
-
   database:
     client: pg
     connection:
@@ -29,7 +25,6 @@ backend:
       user: backstage
       password: ${BACKSTAGE_DB_PASS}
       database: backstage
-
   reading:
     allow:
       - host: github.com
@@ -43,15 +38,15 @@ integrations:
 auth:
   environment: production
   providers:
+    google:
+      production:
+        clientId: ${AUTH_GOOGLE_CLIENT_ID}
+        clientSecret: ${AUTH_GOOGLE_CLIENT_SECRET}
     okta:
       production:
         clientId: ${AUTH_OKTA_CLIENT_ID}
         clientSecret: ${AUTH_OKTA_CLIENT_SECRET}
         audience: ${AUTH_OKTA_AUDIENCE}
-    google:
-      production:
-        clientId: ${AUTH_GOOGLE_CLIENT_ID}
-        clientSecret: ${AUTH_GOOGLE_CLIENT_SECRET}
 
 techdocs:
   builder: external
