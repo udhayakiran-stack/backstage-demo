@@ -82,3 +82,9 @@ catalog:
 
 permission:
   enabled: true
+
+# Fix: disable notifications email processor
+notifications:
+  processors:
+    email:
+      disabled: true
