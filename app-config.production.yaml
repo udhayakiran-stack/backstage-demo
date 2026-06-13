@@ -1,12 +1,6 @@
 app:
   title: My Company Developer Portal
   baseUrl: https://backstage-629511660633.us-central1.run.app
-  extensions:
-    - page:catalog:
-        config:
-          path: /
-organization:
-  name: My Company
 
 backend:
   baseUrl: https://backstage-629511660633.us-central1.run.app
@@ -85,9 +79,3 @@ catalog:
 
 permission:
   enabled: true
-
-# Fix: disable notifications email processor
-notifications:
-  processors:
-    email:
-      disabled: true
